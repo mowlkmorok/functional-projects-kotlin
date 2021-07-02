@@ -1,1 +1,101 @@
+fun main(){  
 
+    while(true) {
+
+        println("""
+            ----------------------------------
+            ------------CALCULATE------------
+            --------------------------------
+        """.trimIndent())
+
+        println("""
+            Choose your operation:
+            1- Plus
+            2- Minus
+            3- Times
+            4- Divide
+            5- Exit
+        """.trimIndent())
+        print("> ")
+        when (readLine()!!) {
+            //Options
+            "1" -> {toPlus()}
+
+            "2" -> {toMinus()}
+
+            "3" -> {toTimes()}
+
+            "4" -> {toDivide()}
+
+            "5" -> {exitProcess(0)}
+            else -> {
+                println("Invalid option") //Invalid condition
+            }
+        }
+    }
+}
+fun toPlus(){
+    //-------------------Principal Anonymous function---------------------------
+    val add: (Float, Float) -> Unit = {x, y -> println(x.plus(y))}
+
+    //First Number 'n1'
+    print("1º Number: ")
+    val n1: String = readLine()!!
+
+    //Second Number 'n2
+    print("2º Number: ")
+    val n2: String = readLine()!!
+
+    //Execute anonymous function
+    add(n1.toFloat(), n2.toFloat())
+}
+
+fun toMinus(){
+    //-------------------Principal Anonymous function---------------------------
+    val min: (Float, Float) -> Unit = {x, y -> println(x.minus(y))}
+
+    print("1º Number: ")
+    //Read First Number
+    val n1: String = readLine()!!
+
+    print("2º Number: ")
+    //Read Second Number
+    val n2: String = readLine()!!
+
+    //Execute anonymous function
+    min(n1.toFloat(), n2.toFloat())
+}
+
+fun toTimes(){
+    //-------------------Principal Anonymous function---------------------------
+    val times: (Float, Float) -> Unit = {x, y -> println(x.times(y))}
+
+    print("1º Number: ")
+    //First Number 'n1'
+    val n1 = readLine()!!
+
+    print("2º Number: ")
+    //Read Second Number
+    val n2 = readLine()!!
+
+    times(n1.toFloat(), n2.toFloat())
+}
+
+fun toDivide(){
+    //-------------------Principal Anonymous function---------------------------
+    val divide: (Float, Float) -> Unit = {x, y -> println(x.div(y))}
+
+    print("1º Number: ")
+    //Read First Number
+    val n1: String = readLine()!!
+
+    print("2º Number: ")
+    //Read Second Number
+    val n2: String = readLine()!!
+
+    //Condition if set divide by 0
+    if (n2.toFloat() > 0f) divide(n1.toFloat(), n2.toFloat()) else println("Number invalid!\nTry again\n\n")
+    Thread.sleep(4000)
+    main()
+
+}
